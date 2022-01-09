@@ -2,9 +2,9 @@
 
 This is my submission with my analysis included, for the Shopify data science challenge.
 
-### Markdown
+### Question 1
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The problem with the average calculated is that it does not account for the total number of each shoe. The average calculated is simply the average of the values in the `order_amount` column.
 
 ```markdown
 Syntax highlighted code block
