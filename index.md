@@ -4,8 +4,7 @@ This is my submission with my analysis included, for the Shopify data science ch
 
 ### Question 1
 
-The problem with the average calculated is that it does not account for the total number of each shoe. The average calculated is simply the average of the values in the `order_amount` column.
-
+a. The AOV calculated in the question is $3145.13. The AOV is calculated by taking the total revenue and dividing by the total number of orders. The reason that this provided AOV calculation is much higher than the expected cost of shoes is because it is not the _average cost of shoes_, but rather the _average cost of orders_. It does not account for the total number of shoes purchased. Instead, it 
 ```markdown
 Syntax highlighted code block
 
