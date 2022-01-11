@@ -13,8 +13,8 @@ The purpose is to explore any trends and distributions within the data.
 --------------------------
 Author: Palvisha Sharma 
 """
-
-
+```
+```python
 # import libraries
 # since I am working on google colab, lines 7 and 8 refer to the 
 # drive being mounted so that I can work with the sample data 
