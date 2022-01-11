@@ -133,6 +133,28 @@ Looking at the maxiumum and minimum amounts, the maximum amount is unreasonably 
 The standard deviation of my data is very high, suggesting that most data points do not agree with the AOV. This confirms that the mean is not an appropriate metric for the AOV.
 
 ```python
+# I can represent the data points relative to the median through a box plot
+# to get a better understanding of the general data that I have, and any outliers
+
+plt.figure(figsize=(20,10))
+plt.yscale("log")
+plt.boxplot(df["order_amount"])
+plt.show()
+
+![image](https://user-images.githubusercontent.com/60575398/148892056-ddc1ebcf-2f4d-4d43-8319-ded903c5ea7e.png)
+
+```
+```python
+```
+```python
+```
+```python
+```
+```python
+```
+```python
+```
+```python
 ```
 
 a. The AOV amount provided in the question is $3145.13. The AOV is calculated by taking the total revenue and dividing by the total number of orders. The reason that this  AOV calculation is much higher than the expected cost of shoes is because the average does not represent the central tendency of the data. As well, given that the highest order total is $704 000 (definitely closer to being the price of a house than a shoe), and because there are multiple orders of this total value, the AOV is highly skewed due to these data points. This maximum order amount greatly offsets the AOV from the cost of individual shoes.
