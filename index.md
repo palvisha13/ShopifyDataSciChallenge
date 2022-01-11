@@ -128,6 +128,10 @@ df["order_amount"].std()
 
 
 ```
+Looking at the maxiumum and minimum amounts, the maximum amount is unreasonably high (definitely a lot closer to house prices in toronto than a shoe). Extreme data points such as this, skew the mean of the data, which is why the average is much higher than expected.
+
+The standard deviation of my data is very high, suggesting that most data points do not agree with the AOV. This confirms that the mean is not an appropriate metric for the AOV.
+
 ```python
 ```
 
