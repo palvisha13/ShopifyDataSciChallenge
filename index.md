@@ -145,7 +145,7 @@ plt.boxplot(df["order_amount"])
 plt.show()
 
 ```
-![image](https://github.com/palvisha13/ShopifyDataSciChallenge/blob/gh-pages/boxplot.png)
+![image of a boxplot of shopify shoe orders](docs/assets/boxplot.png)
 
 I can see that my data is skewed, and does not follow a normal distribution since the median is not centered withing the boxplot. I can also see that the interquartile range is within an order of magnitude of 10<sup>2</sup>, as well as the maximum and minimum values, suggesting that the order amounts enerally fall within the 100s range. The outliers are in the thousands. Therefore, a good order of magnitude estimate for the AOV would be 10<sup>2</sup>. I can analyze my data's distribution better with a histogram.
 
@@ -159,7 +159,7 @@ plt.xlabel("Order Amount")
 plt.ylabel("Number of Orders")
 plt.show()
 ```
-![image](https://github.com/palvisha13/ShopifyDataSciChallenge/blob/gh-pages/hist1.png)
+![image of an incorrect histogram of shopify shoe data distribution](docs/assets/hist1.png)
 
 I know that there must be some values that fall on the 700 000 section of the histogram due to my analysis above, however my histogram does not show those values. This is because of the extreme difference in order amounts, with the maximum being in the hundred thousands, compared to the most common value in the hundreds (as per the calculated mode)
 
@@ -175,7 +175,7 @@ plt.ylabel("Frequency")
 plt.show()
 
 ```
-![image](https://github.com/palvisha13/ShopifyDataSciChallenge/blob/gh-pages/hist2.png)
+![image of a correct histogram of shoe data distribution](docs/assets/hist2.png)
 
 This is much better! Now, I have a histogram of the data in the order_ammount column that is readable. I did not normalize this histogram since the y axis was scaled logarithmically, which would make the y axis less intuitive to understand if the histogram was normalized before the yaxis was scaled. The shape of the expected histogram is preserved.
 
