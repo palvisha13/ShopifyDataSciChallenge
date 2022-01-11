@@ -286,4 +286,18 @@ This query selects and counts all OrderIDs.
 
 **a.** There are 196 Orders.
 
+To get the last name of the employee with the most orders, I still need to access the information on inividual and unique orders, this table also includes EmployeeIDs. Each EmployeeID would refer to a single employee. 
+Calling the query below for employee information confirms that the EmployeeID is a primary key for the Employee Information, and is therefore, unique to each employee. 
+
+```SQL
+SELECT * FROM Employees
+```
+
+Back to determining the Employee with the maximum number of orders. 
+There are two parts to this. 
+First, I need to determine, in the Order information, which EmployeeID shows up the most often. 
+And then I need to use this EmployeeID to find the last name of the Employee it refers to in the Employee table. 
+
+The most efficient way is to combine both steps. Rather than look through two different tables (Orders and Employees) separately, I can use a SQL join with the two tables.
+
 
