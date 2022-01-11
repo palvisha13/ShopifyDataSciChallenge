@@ -210,7 +210,7 @@ Since the AOV is highly skewed by such data points, it is not an accurate repres
 
 #c. The median determined in my EDA is $ 284.00, this median represents the central tendency of the data better than the mean, and is a good metric to report fofr the AOV.
 
-____
+_____
 
 ### Question 2
 
