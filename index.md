@@ -255,15 +255,35 @@ HAVING COUNT(*) > 1
 ```
 There are no duplicates found.
 
+I also want to make sure that there are no null records within the data set (non zero and non integer). Any null records means that a provided order record is incomplete.
+
+Any records with null values in the data were determined by the query below:
+
+```SQL
+SELECT OrderID
+FROM Orders
+WHERE CustomerID IS NULL
+or EmployeeID IS NULL
+or OrderDate IS NULL
+or ShipperID IS NULL;
+```
+Here, all OrderIDs are returned if one of the values in their records is null.
+The output of this query confirmed that there are no null values in the data set. All records are complete.
+
 Although the total number of records (which are confirmed as being unique) are already reported above the table, I can confirm the total number of orders by 
 finding the sum of the number of orderIDs. The IDs are unique so each ID represents a single order, hence the sum of the number of OrderIDs will give the number of
 individual orders shipped by Speedy Express. 
 
+**NOTE:** I do not want to add the OrderID number together, I want to count the total number of OrderIDs, hence
+
 I can find this total through this query: 
 
 ```SQL
-
+SELECT COUNT(OrderID)
+FROM Orders
 ```
+This query selects and counts all OrderIDs.
 
+**a.** There are 196 Orders.
 
 
