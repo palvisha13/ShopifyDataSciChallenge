@@ -34,8 +34,20 @@ drive.mount("/content/drive")
 sns.set()
 
 ```
+```
+# importing and printing the data header
 
+df = pd.read_csv("/content/drive/My Drive/Colab Notebooks/data/ShopifyChallengeData.csv")
+print(df.head())
+```
+  order_id  shop_id  user_id  ...  total_items  payment_method           created_at
+0         1       53      746  ...            2            cash  2017-03-13 12:36:56
+1         2       92      925  ...            1            cash  2017-03-03 17:38:52
+2         3       44      861  ...            1            cash   2017-03-14 4:23:56
+3         4       18      935  ...            1     credit_card  2017-03-26 12:43:37
+4         5       18      883  ...            1     credit_card   2017-03-01 4:35:11
 
+[5 rows x 7 columns]
 
 
 a. The AOV amount provided in the question is $3145.13. The AOV is calculated by taking the total revenue and dividing by the total number of orders. The reason that this  AOV calculation is much higher than the expected cost of shoes is because the average does not represent the central tendency of the data. As well, given that the highest order total is $704 000 (definitely closer to being the price of a house than a shoe), and because there are multiple orders of this total value, the AOV is highly skewed due to these data points. This maximum order amount greatly offsets the AOV from the cost of individual shoes.
