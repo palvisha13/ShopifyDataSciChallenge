@@ -301,9 +301,22 @@ And then I need to use this EmployeeID to find the last name of the Employee it 
 The most efficient way is to combine both steps. Rather than look through two different tables (Orders and Employees) separately, I can use a SQL join with the two tables.
 
 
-My query will run a SQL INNER JOIN on the Employee and Orders table so only EmployeeIDs that are in both tables are included.
+My query will run a SQL INNER JOIN on the Employee and Orders table so only EmployeeIDs that are in both tables are included. Since I want to find the Employee with the most orders, I want to see the most frequently occuring EmployeeID in my Orders list and the associated last name with that EmployeeID. As such, I want to select the EmployeeID from my Orders and LastName from my Employees table, since I want to match the employeeID with a last name, as many times as it shows up. 
 
 To do this, I ran the following query: 
 
 ```SQL
+SELECT Orders.EmployeeID, Employees.LastName
+FROM Orders
+INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
 ```
+The query takes the employeeIDs that are associated with any orders, and employee last names, and combines them into a table where each LastName is aligned with an order on the basis that their employeeIDs match. 
+
+This returns a table with all of the EmployeeIDs that show up on the Orders table (duplicates included), as well as the Employee's last name. 
+
+Below is a screen grab of the table that is produced. 
+
+To determine the last name of the employee with the most orders, I can either determine which Employee ID is most frequent, and then the associated last name, or the employee last name that shows up the most often. 
+
+Since there is a chance that some employees may have the same last name, I will determine the most frequenty EmployeeID and its associated last name.
+
