@@ -301,3 +301,9 @@ And then I need to use this EmployeeID to find the last name of the Employee it 
 The most efficient way is to combine both steps. Rather than look through two different tables (Orders and Employees) separately, I can use a SQL join with the two tables.
 
 
+My query will run a SQL INNER JOIN on the Employee and Orders table so only EmployeeIDs that are in both tables are included.
+
+To do this, I ran the following query: 
+
+```SQL
+```
