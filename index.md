@@ -3,7 +3,7 @@
 This is my submission with my analysis included, for the Shopify data science challenge.
 
 ### Question 1
-My approach to this question was to first perform exporatory data analysis on the dataset provided to better understand its features and the issue with the AOV calculation provided in the question. My work was done on a Jupyter Notebook on Google Colab: [Shopify 2022 Summer Challenge](https://colab.research.google.com/drive/16BDvMPM5h5sTrEkixBL8F8hhzO_wKS7M?usp=sharing).
+My approach to this question was to perform an exporatory data analysis on the dataset provided to better understand its features and the issue with the AOV calculation provided in the question. My work was done on a Jupyter Notebook on Google Colab: [Shopify 2022 Summer Challenge](https://colab.research.google.com/drive/16BDvMPM5h5sTrEkixBL8F8hhzO_wKS7M?usp=sharing).
 
 ```python
 
@@ -95,6 +95,37 @@ Name: order_amount, Length: 5000, dtype: int64
 
 ```
 ```python
+# maximum value in the data set 
+df["order_amount"].max()
+
+704000
+
+# minimum value in the data set
+df["order_amount"].min()
+
+90
+
+# mean of the order_amount 
+df["order_amount"].mean()
+
+3145.128
+
+# median of the order_amount
+df["order_amount"].median()
+
+284.0
+
+# mode of the order_amount
+df["order_amount"].mode()
+
+0    153
+dtype: int64
+
+# standard deviation of my data 
+df["order_amount"].std()
+
+41282.539348788196
+
 
 ```
 ```python
