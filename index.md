@@ -44,7 +44,8 @@ sns.set()
 
 df = pd.read_csv("/content/drive/My Drive/Colab Notebooks/data/ShopifyChallengeData.csv")
 print(df.head())
-
+```
+`
   order_id  shop_id  user_id  ...  total_items  payment_method           created_at
 0         1       53      746  ...            2            cash  2017-03-13 12:36:56
 1         2       92      925  ...            1            cash  2017-03-03 17:38:52
@@ -53,7 +54,8 @@ print(df.head())
 4         5       18      883  ...            1     credit_card   2017-03-01 4:35:11
 
 [5 rows x 7 columns]
-```
+`
+
 ```python
 # ensure that there are no null values in the data set
 df.isnull().sum()
