@@ -144,6 +144,8 @@ plt.show()
 ```
 ![image](https://github.com/palvisha13/ShopifyDataSciChallenge/blob/gh-pages/boxplot.png)
 
+I can see that my data is skewed, and does not follow a normal distribution since the median is not centered withing the boxplot. I can also see that the interquartile range is within an order of magnitude of 10<sup>2</sup>, as well as the maximum and minimum values, suggesting that the order amounts enerally fall within the 100s range. The outliers are in the thousands. Therefore, a good order of magnitude estimate for the AOV would be 10<sup>2</sup>. I can analyze my data's distribution better with a histogram.
+
 ```python
 ```
 ```python
