@@ -200,7 +200,7 @@ print(avg_shoe_cost)
 357.9215222141296
 ```
 
-## Questions
+### Sub-Questions
 
 #a. The AOV amount provided in the question is $3145.13. The AOV is calculated by taking the total revenue and dividing by the total number of orders. The reason that this  AOV calculation is much higher than the expected cost of shoes is because the average does not represent the central tendency of the data. As well, given that the highest order total is $704 000 (definitely closer to being the price of a house than a shoe), and because there are multiple orders of this total value, the AOV is highly skewed due to these data points. This maximum order amount greatly offsets the AOV from the cost of individual shoes.
 
@@ -210,7 +210,7 @@ Since the AOV is highly skewed by such data points, it is not an accurate repres
 
 #c. The median determined in my EDA is $ 284.00, this median represents the central tendency of the data better than the mean, and is a good metric to report fofr the AOV.
 
----------------
+____
 
 ### Question 2
 
