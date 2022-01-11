@@ -6,12 +6,13 @@ This is my submission with my analysis included, for the Shopify data science ch
 My approach to this question was to first perform exporatory data analysis on the dataset provided to better understand its features and the issue with the AOV calculation provided in the question. My work was done on a Jupyter Notebook on Google Colab: [Shopify 2022 Summer Challenge](https://colab.research.google.com/drive/16BDvMPM5h5sTrEkixBL8F8hhzO_wKS7M?usp=sharing).
 
 ```python
-Syntax highlighted code block
 
+"""
 This notebook preforms an analysis of the data on shoe orders from 100 Shopify stores.
 The purpose is to explore any trends and distributions within the data.
 --------------------------
-Author: Palvisha Sharma
+Author: Palvisha Sharma 
+"""
 
 
 # import libraries
