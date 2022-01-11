@@ -141,7 +141,7 @@ plt.yscale("log")
 plt.boxplot(df["order_amount"])
 plt.show()
 
-![image](https://user-images.githubusercontent.com/60575398/148892056-ddc1ebcf-2f4d-4d43-8319-ded903c5ea7e.png)
+![image](boxplot.png)
 
 ```
 ```python
