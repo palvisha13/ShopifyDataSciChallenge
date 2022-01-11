@@ -11,8 +11,10 @@ My approach to this question was to perform an exporatory data analysis on the d
 ```python
 
 """
-This notebook preforms an analysis of the data on shoe orders from 100 Shopify stores.
-The purpose is to explore any trends and distributions within the data.
+This notebook preforms an analysis of the data on shoe orders 
+from 100 Shopify stores.
+The purpose is to explore any trends 
+and distributions within the data.
 --------------------------
 Author: Palvisha Sharma 
 """
@@ -80,7 +82,8 @@ df.shape
 
 (5000, 7)
 
-# since the point of focus is the order amount, I will preform an analysis of the data below
+# since the point of focus is the order amount,
+# I will preform an analysis of the data below
 print(df["order_amount"])
 
 0       224
@@ -201,7 +204,8 @@ I decided to check one more thing with the data and calculate the average cost o
 
 ```python
 # average cost of each shoe
-# the average cost of each shoe is the total amount of money spent on shoes across all orders
+# the average cost of each shoe is the total amount 
+#of money spent on shoes across all orders
 # divided by the total number of shoes purchased across all orders 
 
 avg_shoe_cost = np.sum(df["order_amount"]/ np.sum(df["total_items"]))
