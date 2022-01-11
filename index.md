@@ -236,8 +236,34 @@ _____
 
 ### Question 2
 
-To access the data set, the initial Query run was: 
+To access the data set, and determine the total number of orders, the initial Query run was: 
 
 ```SQL
-SELECT * FROM Customers;
+SELECT * FROM Orders;
 ```
+Which selects all data from the table "Orders" in the data set. This table displays the order IDs, customer IDs, and order dates of orders shipped by Speedy Express.
+
+The OrderID is the primary key in this data set, there are no duplicate values for a primary key, and I can confirm that the orderIDs are all unique by checking for duplicate values through this query: 
+
+It groups and counts orderIDs within a group. Any group with more than a single entry represents a duplicate OrderID.
+
+```SQL
+SELECT OrderID, COUNT(*)
+FROM Orders
+GROUP BY OrderID
+HAVING COUNT(*) > 1
+```
+There are no duplicates found.
+
+Although the total number of records (which are confirmed as being unique) are already reported above the table, I can confirm the total number of orders by 
+finding the sum of the number of orderIDs. The IDs are unique so each ID represents a single order, hence the sum of the number of OrderIDs will give the number of
+individual orders shipped by Speedy Express. 
+
+I can find this total through this query: 
+
+```SQL
+
+```
+
+
+
