@@ -236,3 +236,8 @@ _____
 
 ### Question 2
 
+To access the data set, the initial Query run was: 
+
+```SQL
+SELECT * FROM Customers;
+```
