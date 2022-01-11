@@ -6,7 +6,7 @@
 My approach to this question was to perform an exporatory data analysis on the dataset provided to better understand its features and the issue with the AOV calculation given in the question. My work was done on a Jupyter Notebook on Google Colab: [Shopify 2022 Summer Challenge](https://colab.research.google.com/drive/16BDvMPM5h5sTrEkixBL8F8hhzO_wKS7M?usp=sharing).
 
 
-## EDA
+ **EDA**
 
 ```python
 
@@ -134,9 +134,9 @@ df["order_amount"].std()
 
 
 ```
-Looking at the maxiumum and minimum amounts, the maximum amount is unreasonably high (definitely a lot closer to house prices in toronto than a shoe). Extreme data points such as this, skew the mean of the data, which is why the average is much higher than expected.
+Looking at the maxiumum and minimum amounts, the maximum amount is unreasonably high. Extreme data points such as this, skew the mean of the data, which is why the average is much higher than expected.
 
-The standard deviation of my data is very high, suggesting that most data points do not agree with the AOV. This confirms that the mean is not an appropriate metric for the AOV.
+The standard deviation of my data is also very high, suggesting that most data points do not agree with the AOV. This confirms that the mean is not an appropriate metric for the AOV.
 
 ```python
 # I can represent the data points relative to the median through a box plot
@@ -150,7 +150,9 @@ plt.show()
 ```
 ![image of a boxplot of shopify shoe orders](docs/assets/boxplot.png)
 
-I can see that my data is skewed, and does not follow a normal distribution since the median is not centered withing the boxplot. I can also see that the interquartile range is within an order of magnitude of 10<sup>2</sup>, as well as the maximum and minimum values, suggesting that the order amounts enerally fall within the 100s range. The outliers are in the thousands. Therefore, a good order of magnitude estimate for the AOV would be 10<sup>2</sup>. I can analyze my data's distribution better with a histogram.
+I can see that my data is skewed, and does not follow a normal distribution since the median is not centered withing the boxplot. I can also see that the interquartile range is within an order of magnitude  10<sup>2</sup>, as are the maximum and minimum values. This suggests that the order amounts generally fall within the $ 100s range. The outliers are lie in the thousands. Therefore, a good order of magnitude estimate for the AOV would be 10<sup>2</sup>. 
+
+I can analyze my data's distribution better with a histogram.
 
 ```python
 # plot the distribution of order amounts 
@@ -164,7 +166,7 @@ plt.show()
 ```
 ![image of an incorrect histogram of shopify shoe data distribution](docs/assets/hist1.png)
 
-I know that there must be some values that fall on the 700 000 section of the histogram due to my analysis above, however my histogram does not show those values. This is because of the extreme difference in order amounts, with the maximum being in the hundred thousands, compared to the most common value in the hundreds (as per the calculated mode)
+My histogram here fails to show both the smaller and larger values due to extreme difference in costs, with the maximum amount being close to 700 000, compared to the minimum amount of 90. 
 
 ```python
 # another attempt at plotting my histogram by scaling with logarithmic scaling.
@@ -185,20 +187,20 @@ This is much better! Now, I have a histogram of the data in the order_ammount co
 
 
 
-Looking at this histogram, the data is skewed to the right since it is an asymmetric distribution with a right ended tail. This means that the mean is higher than the middle and most frequently occuring values, confirming that it is not a good representation of the data.
+Looking at this histogram, the data is skewed to the right since it is an asymmetric distribution with a right ended tail. This means that the mean is higher than the median and mode values, confirming that it is not a good metric to describe central tendency.
 
 
 
 
-The histogram also represents a skew in the distribution of continuous data rather than categorical, as such I will opt to report the median of the order_amount, rather than the mode. The median better represents continuous data that does not follow a normal distribution, and the mode better represents the distribution of categorical (non-continuous) data. Although, both can be reported for a continuous data set.
+The histogram also shows a skew in the distribution of continuous data rather than categorical, as such I will opt to report the median of the `order_amount`, rather than the mode. The median better represents continuous data that does not follow a normal distribution, and the mode better represents the distribution of categorical (non-continuous) data. Although, both can be reported for a continuous data set.
 
 
 
-The median of the order amounts is 284.00 hence, I can expect the AOV and general cost of shoes from the shopify stores to be around $ 284.00.
+The median of the order amounts is $ 284.00 hence, I can expect the AOV and general cost of shoes from the shopify stores to be around $ 284.00.
 
 
 
-Looking at the above exploration of the data provided, it is evident that the mistake made in calculating the AOV by taking the average of values was that the distribution of the data was not considered. The mean best represents data that follows a normal distrbution as it is an appropriate measure of central tendency in normal distrbutions. However, the data for the order amounts did not follow a normal distribution, and a better measure of central tendency was determined to be the median. As well, considering that the maximum order amount is around ~700K, nowhere near the general cost of shoes, it is clear that the average of these values would be very skewed (as determined).
+Looking at my EDA above, it is evident that the mistake made in calculating the AOV by taking the average of values was that the distribution of the data was not considered. The mean best represents data that follows a normal distrbution as it is an appropriate measure of central tendency in normal distrbutions. However, the data for the order amounts did not follow a normal distribution, and a better measure of central tendency was determined to be the median. 
 
 I decided to check one more thing with the data and calculate the average cost of each shoe below.
 
@@ -214,7 +216,6 @@ print(avg_shoe_cost)
 357.9215222141296
 ```
 
-### Sub-Questions
 
  **a**. The AOV amount provided in the question is $3145.13. The AOV is calculated by taking the total revenue and dividing by the total number of orders. The reason that this  AOV calculation is much higher than the expected cost of shoes is because the average does not represent the central tendency of the data. As well, given that the highest order total is $704 000 (definitely closer to being the price of a house than a shoe), and because there are multiple orders of this total value, the AOV is highly skewed due to these data points. This maximum order amount greatly offsets the AOV from the cost of individual shoes.
 
