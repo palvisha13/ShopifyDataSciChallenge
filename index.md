@@ -141,9 +141,9 @@ plt.yscale("log")
 plt.boxplot(df["order_amount"])
 plt.show()
 
+```
 ![image](https://github.com/palvisha13/ShopifyDataSciChallenge/blob/gh-pages/boxplot.png)
 
-```
 ```python
 ```
 ```python
