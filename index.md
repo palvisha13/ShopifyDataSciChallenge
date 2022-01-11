@@ -49,6 +49,56 @@ print(df.head())
 
 [5 rows x 7 columns]
 ```
+```python
+# ensure that there are no null values in the data set
+df.isnull().sum()
+
+order_id          0
+shop_id           0
+user_id           0
+order_amount      0
+total_items       0
+payment_method    0
+created_at        0
+dtype: int64
+```
+```python
+# determining the columns in the data
+df.columns
+
+Index(['order_id', 'shop_id', 'user_id', 'order_amount', 'total_items',
+       'payment_method', 'created_at'],
+      dtype='object')
+```
+```python
+# determining the shape of our data, this can be used to determine the 
+# number of features and amount of data 
+df.shape
+
+(5000, 7)
+
+# since the point of focus is the order amount, I will preform an analysis of the data below
+print(df["order_amount"])
+
+0       224
+1        90
+2       144
+3       156
+4       156
+       ... 
+4995    330
+4996    234
+4997    351
+4998    354
+4999    288
+Name: order_amount, Length: 5000, dtype: int64
+
+```
+```python
+
+```
+```python
+```
 
 a. The AOV amount provided in the question is $3145.13. The AOV is calculated by taking the total revenue and dividing by the total number of orders. The reason that this  AOV calculation is much higher than the expected cost of shoes is because the average does not represent the central tendency of the data. As well, given that the highest order total is $704 000 (definitely closer to being the price of a house than a shoe), and because there are multiple orders of this total value, the AOV is highly skewed due to these data points. This maximum order amount greatly offsets the AOV from the cost of individual shoes.
 
