@@ -184,21 +184,11 @@ plt.show()
 ```
 ![image of a correct histogram of shoe data distribution](docs/assets/hist2.png)
 
-This is much better! Now, I have a histogram of the data in the order_ammount column that is readable. I did not normalize this histogram since the y axis was scaled logarithmically, which would make the y axis less intuitive to understand if the histogram was normalized before the yaxis was scaled. The shape of the expected histogram is preserved.
+This is much better! Now, I have a histogram of the data in the order_ammount column that is readable. I did not normalize this histogram since the y axis was scaled logarithmically, which would make the y axis less intuitive to understand if the histogram was normalized before the yaxis was scaled. The shape of the expected histogram is preserved. The data is skewed to the right since it is an asymmetric distribution with a right ended tail, confirming that the mean should not be used.
 
+Since this represents a skew in continuous data (not categorical), I will report the median of the `order_amount`, rather than the mode.The median better represents continuous data that does not follow a normal distribution, and the mode better represents the distribution of categorical (non-continuous) data. 
 
-
-
-Looking at this histogram, the data is skewed to the right since it is an asymmetric distribution with a right ended tail. This means that the mean is higher than the median and mode values, confirming that it is not a good metric to describe central tendency.
-
-
-
-
-The histogram also shows a skew in the distribution of continuous data rather than categorical, as such I will opt to report the median of the `order_amount`, rather than the mode. The median better represents continuous data that does not follow a normal distribution, and the mode better represents the distribution of categorical (non-continuous) data. Although, both can be reported for a continuous data set.
-
-
-
-The median of the order amounts is $ 284.00 hence, I can expect the AOV and general cost of shoes from the shopify stores to be around $ 284.00.
+The median of the order amounts is $ 284.00 hence, I can expect the AOV from the shopify stores to be around $ 284.00.
 
 
 
@@ -220,11 +210,6 @@ print(avg_shoe_cost)
 
 
  **a**. The AOV amount provided in the question is $3145.13. The AOV is calculated by taking the total revenue and dividing by the total number of orders. The reason that this  AOV calculation is much higher than the expected cost of shoes is because the average does not represent the central tendency of the data. As well, given that the highest order total is $704 000 (definitely closer to being the price of a house than a shoe), and because there are multiple orders of this total value, the AOV is highly skewed due to these data points. This maximum order amount greatly offsets the AOV from the cost of individual shoes.
-
-
-
-Since the AOV is highly skewed by such data points, it is not an accurate representation of the general cost of shoes amongst the 100 stores. Due to this, it also does not provide much information about the stores and shoe purchases aside from the average amount of money spent on shoes over this particular 30 day period. For substantial information on the dataset and associated costs, rather than the AOV, the average or median cost (if there is a highly skewed distribution) of shoes must be reported.  
-
 
 
 **b**. As per my analysis above, the best metric to report for a skewed continuous distribution will be the median.
