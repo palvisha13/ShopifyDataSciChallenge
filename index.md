@@ -298,25 +298,60 @@ There are two parts to this.
 First, I need to determine, in the Order information, which EmployeeID shows up the most often. 
 And then I need to use this EmployeeID to find the last name of the Employee it refers to in the Employee table. 
 
-The most efficient way is to combine both steps. Rather than look through two different tables (Orders and Employees) separately, I can use a SQL join with the two tables.
+The most efficient way is to combine both steps. Rather than look through two different tables (Orders and Employees) separately, I can find the most frequent EmployeeID that shows up in my Orders table, and compare it to the Employee information table to find its corresponding last name.
 
 
-My query will run a SQL INNER JOIN on the Employee and Orders table so only EmployeeIDs that are in both tables are included. Since I want to find the Employee with the most orders, I want to see the most frequently occuring EmployeeID in my Orders list and the associated last name with that EmployeeID. As such, I want to select the EmployeeID from my Orders and LastName from my Employees table, since I want to match the employeeID with a last name, as many times as it shows up. 
-
-To do this, I ran the following query: 
+To do this, I ran the following query first : 
+```SQL
+SELECT * FROM Orders 
+```
+To first accquire the entire table. 
+Then, I ran the query: 
 
 ```SQL
-SELECT Orders.EmployeeID, Employees.LastName
+SELECT EmployeeID, COUNT(*)
 FROM Orders
-INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+GROUP BY EmployeeID
 ```
-The query takes the employeeIDs that are associated with any orders, and employee last names, and combines them into a table where each LastName is aligned with an order on the basis that their employeeIDs match. 
+This query is similary to a query above. It groups the same EmployeeIDs together, and counts how many are in each group. Then, in a column beside each unique employeeID, it returns the frequency of that ID.
+From here, the following query can be ran to return the most frequent of the EmployeeIDs. 
 
-This returns a table with all of the EmployeeIDs that show up on the Orders table (duplicates included), as well as the Employee's last name. 
+First, I can sort my data from the most to least frequent -> descending order. 
+Then, since I need the most frequent, I just need the first/top row.
 
-Below is a screen grab of the table that is produced. 
+To put the data into descening order by the calculated frequency, I just add on this query: 
 
-To determine the last name of the employee with the most orders, I can either determine which Employee ID is most frequent, and then the associated last name, or the employee last name that shows up the most often. 
+```SQL
+ORDER BY COUNT(*) DESC
+```
+Then, to get the top value, I can always read it off by the results of my above query, but to do it completely through SQL, 
+I will select just the top row now by adding the query to the bottom of everything above: 
 
-Since there is a chance that some employees may have the same last name, I will determine the most frequenty EmployeeID and its associated last name.
-Of course, I could always check to see that all last names are unique to only one EmployeeID,
+```SQL
+LIMIT 1
+```
+Combining all of these, my query will look like the at the end: 
+
+```SQL
+SELECT EmployeeID, COUNT(*) 
+FROM Orders 
+GROUP BY EmployeeID
+ORDER BY COUNT(*) DESC
+LIMIT 1
+```
+There I have it, the most frequent EmployeeID is "4". 
+Now, I need to find the last name associated with this ID. The EmployeeID is the primary key for the Employee table, so I can use this 
+key to find the last name of the employee. 
+
+```SQL
+SELECT LastName FROM Employees 
+WHERE EmployeeID = 4
+```
+This query selects the last name from the employees table with an employee ID of 4.
+
+The result says that the Last Name of the most frequent EmployeeID is Peacock. 
+
+**b.** The employee with the most orders has a last name Peacock. 
+An alternative way to do this would have been to use SQL JOINS but this is still straightforward.
+
+
