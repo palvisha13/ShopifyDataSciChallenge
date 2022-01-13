@@ -336,7 +336,7 @@ This query selects the last name from the employees table with an employee ID of
 
 The result says that the Last Name of the most frequent EmployeeID is Peacock. 
 
-**b.** The employee with the most orders has a last name Peacock. 
+**b.** The employee with the most orders has the last name **Peacock**. 
 An alternative way to do this would have been to use SQL JOINS but this is still straightforward.
 
 
