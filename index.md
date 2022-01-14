@@ -339,4 +339,59 @@ The result says that the Last Name of the most frequent EmployeeID is Peacock.
 **b.** The employee with the most orders has the last name **Peacock**. 
 An alternative way to do this would have been to use SQL JOINS but this is still straightforward.
 
+Now, to find the most common prouct ordered from Germany,  I need to find all of the customers from Germany and match them with their Orders. 
 
+There are 4 tables I need to consider: 
+`Products` 
+`Orders`
+`OrderDetails`
+`Customers` 
+To find the most purchased product from customers in Germany, I need to first inner join all of those tables so I can connect them based on their common columns. 
+The  Customers table has Customer IDs and Customer Countries, the Orders have Customer IDs, and Order IDs, the OrderDetails have Order IDs and Product IDs, and the
+Products table has  Product IDs and Product Names.
+
+```SQL
+SELECT Customers.Country, Orders.OrderID, OrderDetails.ProductID, Products.ProductName
+FROM Customers
+INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID 
+INNER JOIN OrderDetails ON OrderDetails.OrderID = Orders.OrderID
+INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID
+```
+This returns joins all of the important tables and returns the information I need in order to find the most common purchase from Germany (ie. Product names, and Country). 
+
+Now, I need to run a query to filter for just the records with Country = Germany. 
+So, I add this line to my above query: 
+
+`WHERE Country= "Germany"`
+
+Now that I have all of the product IDs for German orders, I need to group by the Prouct IDs, count the number of each ProductID, and return the highest value. 
+I added the following lines to the end of my SQL query above: 
+
+```SQL
+GROUP BY Products.ProductID
+ORDER BY COUNT(*) DESC
+LIMIT 1
+```
+
+and added the following to the end of my selection.
+
+```SQL
+,COUNT(*)
+```
+My SQL query became: 
+
+```SQL
+SELECT Customers.Country, Orders.OrderID, OrderDetails.ProductID, Products.ProductName, COUNT(*)
+FROM Customers
+INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID 
+INNER JOIN OrderDetails ON OrderDetails.OrderID = Orders.OrderID
+INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID
+WHERE Country= "Germany"
+GROUP BY Products.ProductID
+ORDER BY COUNT(*) DESC
+LIMIT 1
+```
+So, I am essentially returning the selected columns and the count of the Product IDs after joining the three tables I require, and filtering based on the country.
+The LIMIT 1 and DESC sort the records by the most to least frequent ProductIDs and the LIMIT 1 returns the top of that descending list- ie. the record with the most frequent product ID. The most frequent Product ID is associated with the Product: Gorgonzola Telino
+
+**c** The most common product ordered in Germany is Gorgonzola Telino.
