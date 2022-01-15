@@ -79,7 +79,7 @@ With this query, I am joining all of the necessary tables together and returning
 
 
 
-### Detailed Thought Process
+## Detailed Thought Process
 
 ----
 
