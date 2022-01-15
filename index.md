@@ -234,13 +234,59 @@ SELECT * FROM Orders;
 ```
 Which selects all data from the table "Orders" in the data set. This table displays the order IDs, customer IDs, and order dates of orders shipped by Speedy Express.
 
+**a.** There are 196 orders shipped by Speedy Express.
+
 ```SQL
 SELECT COUNT(OrderID)
 FROM Orders
 ```
 This query selects and counts all OrderIDs.
+More analysis and checks were preformed on this data, as shown below.
 
-**a.** There are 196 orders shipped by Speedy Express.
+**b.** The employee with the most orders has the last name **Peacock**. 
+
+```SQL
+SELECT EmployeeID, COUNT(*) 
+FROM Orders 
+GROUP BY EmployeeID
+ORDER BY COUNT(*) DESC
+LIMIT 1
+```
+This returns the most frequent EmployeeID in the Orders table. It groups unique EmployeeIDs and counts how many of each there are, then orders the records by the 
+most to least frequent EmployeeID in the Orders table. The LIMIT 1 returns the first record (most frequent) in that ordered list.
+The most frequent EmployeeID in the Orders column is returned as 4. 
+
+Now, I need to find the last name associated with this ID. The EmployeeID is the primary key for the Employee table, so I can use this 
+key to find the last name of the employee. 
+
+```SQL
+SELECT LastName FROM Employees 
+WHERE EmployeeID = 4
+```
+This query selects the last name from the employees table with an employee ID of 4.
+
+The result says that the Last Name of the most frequent EmployeeID is Peacock.
+
+**c** The most common product ordered in Germany is Gorgonzola Telino.
+
+```SQL
+SELECT Customers.Country, Orders.OrderID, OrderDetails.ProductID, Products.ProductName, COUNT(*)
+FROM Customers
+INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID 
+INNER JOIN OrderDetails ON OrderDetails.OrderID = Orders.OrderID
+INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID
+WHERE Country= "Germany"
+GROUP BY Products.ProductID
+ORDER BY COUNT(*) DESC
+LIMIT 1
+```
+With this query, I am joining all of the necessary tables together and returning the orderIDs, productIDs, and ProductNames for all orders placed in Germany. Then, I am grouping all of the unique products purchased in Germany by their Product IDs, and ordering the records by the most to least frequent Product ID. The most frequent product ID is returned, along with its name. The most frequent Product ID is associated with the Product: Gorgonzola Telino
+
+
+
+
+
+## Detailed Explanation/ Thought process. 
 
 The OrderID is the primary key in this data set, there are no duplicate values for a primary key, and I can confirm that the orderIDs are all unique by checking for duplicate values through this query: 
 
@@ -343,7 +389,6 @@ This query selects the last name from the employees table with an employee ID of
 
 The result says that the Last Name of the most frequent EmployeeID is Peacock. 
 
-**b.** The employee with the most orders has the last name **Peacock**. 
 An alternative way to do this would have been to use SQL JOINS but this is still straightforward.
 
 Now, to find the most common prouct ordered from Germany,  I need to find all of the customers from Germany and match them with their Orders. 
