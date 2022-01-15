@@ -223,14 +223,24 @@ print(avg_shoe_cost)
 _____
 
 
-### Question 2
+### Question 2 
 
-To access the data set, and determine the total number of orders, the initial Query run was: 
+## Answers: 
+
+To access the data set, and determine the total number of orders, the initial query run was: 
 
 ```SQL
 SELECT * FROM Orders;
 ```
 Which selects all data from the table "Orders" in the data set. This table displays the order IDs, customer IDs, and order dates of orders shipped by Speedy Express.
+
+```SQL
+SELECT COUNT(OrderID)
+FROM Orders
+```
+This query selects and counts all OrderIDs.
+
+**a.** There are 196 orders shipped by Speedy Express.
 
 The OrderID is the primary key in this data set, there are no duplicate values for a primary key, and I can confirm that the orderIDs are all unique by checking for duplicate values through this query: 
 
@@ -267,13 +277,6 @@ individual orders shipped by Speedy Express.
 
 I can find this total through this query: 
 
-```SQL
-SELECT COUNT(OrderID)
-FROM Orders
-```
-This query selects and counts all OrderIDs.
-
-**a.** There are 196 Orders.
 
 To get the last name of the employee with the most orders, I still need to access the information on inividual and unique orders, this table also includes EmployeeIDs. Each EmployeeID would refer to a single employee. 
 Calling the query below for employee information confirms that the EmployeeID is a primary key for the Employee Information, and is therefore, unique to each employee. 
