@@ -2,16 +2,16 @@
 
 
 ## Answers: 
-<div style="background-color":rgba(0, 0, 0, 0.0470588)> 
+<p style="background-color":rgba(0, 0, 0, 0.0470588)> 
 ## Question 1
-My approach to this question was to perform an exporatory data analysis on the dataset provided to better understand its features and the issue with the AOV calculation given in the question. My work was done on a Jupyter Notebook on Google Colab: ![Shopify 2022 Summer Challenge](https://colab.research.google.com/drive/16BDvMPM5h5sTrEkixBL8F8hhzO_wKS7M?usp=sharing).
+My approach to this question was to perform an exporatory data analysis on the dataset provided to better understand its features and the issue with the AOV calculation given in the question. My work was done on a Jupyter Notebook on Google Colab: [Shopify 2022 Summer Challenge](https://colab.research.google.com/drive/16BDvMPM5h5sTrEkixBL8F8hhzO_wKS7M?usp=sharing).
 
  **a**. The AOV amount provided in the question is $3145.13. The AOV is calculated by taking the total revenue and dividing by the total number of orders. The reason that this  AOV calculation is much higher than the expected cost of shoes is because the average does not represent the central tendency of the data. As well, given that the highest order total is $704 000  and because there are multiple orders of this total value, the AOV is highly skewed due to these data points. This maximum order amount greatly offsets the AOV from the cost of individual shoes.
 
 **b**. As per my analysis above, the best metric to report for a skewed continuous distribution will be the median.
 
 **c**. The median determined in my EDA is $ 284.00, this median represents the central tendency of the data better than the mean, and is a good metric to report for the AOV.
-            </div> 
+            </p> 
 
 
 -----------
