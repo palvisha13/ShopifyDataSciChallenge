@@ -46,10 +46,10 @@ ORDER BY COUNT(*) DESC
 LIMIT 1
 ```
 This returns the most frequent EmployeeID in the Orders table. It groups unique EmployeeIDs and counts how many of each there are, then orders the records by the 
-most to least frequent EmployeeID in the Orders table. The LIMIT 1 returns the first record (most frequent) in that ordered list.
+most to least frequent EmployeeID in the Orders table.
 The most frequent EmployeeID in the Orders column is returned as 4. 
 
-Now, I need to find the last name associated with this ID. The EmployeeID is the primary key for the Employee table, so I can use this 
+To find the last name associated with this ID, the EmployeeID is the primary key for the Employee table, so I can use this 
 key to find the last name of the employee. 
 
 ```SQL
@@ -60,7 +60,7 @@ This query selects the last name from the employees table with an employee ID of
 
 The result says that the Last Name of the most frequent EmployeeID is Peacock.
 
-**c. ** The most common product ordered in Germany is Gorgonzola Telino.
+**c.** The most common product ordered in Germany is Gorgonzola Telino.
 
 ```SQL
 SELECT Customers.Country, Orders.OrderID, OrderDetails.ProductID, Products.ProductName, COUNT(*)
