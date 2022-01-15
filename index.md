@@ -2,7 +2,7 @@
 
 
 ## Answers: 
-<p style="background-color":rgba(0, 0, 0, 0.0470588)> 
+-----
 ## Question 1
 My approach to this question was to perform an exporatory data analysis on the dataset provided to better understand its features and the issue with the AOV calculation given in the question. My work was done on a Jupyter Notebook on Google Colab: [Shopify 2022 Summer Challenge](https://colab.research.google.com/drive/16BDvMPM5h5sTrEkixBL8F8hhzO_wKS7M?usp=sharing).
 
@@ -12,9 +12,8 @@ My approach to this question was to perform an exporatory data analysis on the d
 
 **c**. The median determined in my EDA is $ 284.00, this median represents the central tendency of the data better than the mean, and is a good metric to report for the AOV.
             </p> 
-
-
 -----------
+
 
 ## Question 2 
 
@@ -77,6 +76,8 @@ LIMIT 1
 With this query, I am joining all of the necessary tables together and returning the orderIDs, productIDs, and ProductNames for all orders placed in Germany. Then, I am grouping all of the unique products purchased in Germany by their Product IDs, and ordering the records by the most to least frequent Product ID. The most frequent product ID is returned, along with its name. The most frequent Product ID is associated with the Product: Gorgonzola Telino. 
 
 --------
+
+
 
 ### Detailed Thought Process
 
@@ -283,10 +284,7 @@ print(avg_shoe_cost)
 
 357.9215222141296
 ```
-
-
-
-_____
+------
 
 
 ## Question 2 
@@ -450,3 +448,5 @@ So, I am essentially returning the selected columns and the count of the Product
 The LIMIT 1 and DESC sort the records by the most to least frequent ProductIDs and the LIMIT 1 returns the top of that descending list- ie. the record with the most frequent product ID. The most frequent Product ID is associated with the Product: Gorgonzola Telino
 
 **c** The most common product ordered in Germany is Gorgonzola Telino.
+
+----
