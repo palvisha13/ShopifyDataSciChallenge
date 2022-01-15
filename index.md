@@ -11,8 +11,8 @@ My approach to this question was to perform an exporatory data analysis on the d
 **b**. As per my analysis above, the best metric to report for a skewed continuous distribution will be the median.
 
 **c**. The median determined in my EDA is $ 284.00, this median represents the central tendency of the data better than the mean, and is a good metric to report for the AOV.
-            </p> 
------------
+            
+------
 
 
 ## Question 2 
